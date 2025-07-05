@@ -2,9 +2,9 @@
 
 galaxy_info:
   role_name: vscode
-  author: author_name
-  description: ansible-role-template description
-  license: some_license
+  author: philnewm
+  description: Automatically install vscode by adding its repository entry
+  license: MIT
   min_ansible_version: "2.1"
   platforms:
     - name: EL

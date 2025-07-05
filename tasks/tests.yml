@@ -1,5 +1,22 @@
 ---
 
-# tests to verify role functionality
+- name: Gather package facts
+  ansible.builtin.package_facts:
+
+- name: Test installed dependencies
+  loop: "{{ debian_dependencies }}"
+  when: ansible_os_family == "Debian"
+  ansible.builtin.assert:
+    that:
+      - item in ansible_facts.packages
+    fail_msg: "Required package '{{ item }}' is missing."
+    quiet: true
+
+- name: Test installed VSCode
+  ansible.builtin.assert:
+    that:
+      - "'code' in ansible_facts.packages"
+    fail_msg: "Ulauncher' is not installed."
+    quiet: true
 
 ...

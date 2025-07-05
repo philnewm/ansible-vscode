@@ -4,7 +4,7 @@
 
 Role description
 
-This role includes a vagrant based molecule testing setup as a submodule at `molecule/default`
+This role includes a vagrant based molecule testing setup as a submodule at `molecule`
 
 ## Structure
 
@@ -12,27 +12,21 @@ This role includes a vagrant based molecule testing setup as a submodule at `mol
 📦 ansible-vscode
  ┣ 📂 defaults
  ┃ ┗ 📜 main.yml
- ┣ 📂 files
- ┃ ┗ 📜 file_placeholder.yml
- ┣ 📂 handlers
- ┃ ┗ 📜 main.yml
  ┣ 📂 meta
  ┃ ┗ 📜 main.yml
  ┣ 📂 molecule
  ┃ ┗ 📂 default
  ┃   ┗ 📜, 📜, 📜, scenario_files
- ┣ 📂 tasks
- ┃ ┣ 📜 main.yml
- ┃ ┣ 📜 present.yml
- ┃ ┣ 📜 dependencies.yml
- ┃ ┣ 📜 absent.yml
- ┃ ┗ 📜 init.yml
- ┣ 📂 templates
- ┃ ┗ ⛩️ template.j2
+ ┣ 📂tasks
+ ┃ ┣ 📜absent.yml
+ ┃ ┣ 📜debian_repo_setup.yml
+ ┃ ┣ 📜main.yml
+ ┃ ┣ 📜present.yml
+ ┃ ┣ 📜redhat_repo_setup.yml
+ ┃ ┗ 📜tests.yml
  ┣ 📂 vars
  ┃ ┗ 📜 main.yml
  ┗ 🗒️ README.md
- ┗ 📓 requirements.txt
 
 ```
 
@@ -77,18 +71,3 @@ tasks:
 ## License
 
 Add license - if any.
-
-## Notes
-
-Includes special git configuration for submodule files that are most likely to get local overrides
-`.git/info/attributes`
-
-```code
-molecule/default/cleanup.yml merge=ours
-molecule/default/converge.yml merge=ours
-molecule/default/verify.yml merge=ours
-```
-
-## Changes to role template
-
-* Add github action that flags empty directories on release creation

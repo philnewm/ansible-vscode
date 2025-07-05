@@ -1,7 +1,5 @@
 ---
 
-# Variables for ansible-role-template
-
 state: present
 
 ...

@@ -1,7 +1,14 @@
 ---
 
-# Uninstall and cleanup tasks
+- name: Gather package facts
+  ansible.builtin.package_facts:
 
+- name: Remove VSCode
+  become: true
+  when: "'code' in ansible_facts.packages"
+  ansible.builtin.package:
+    name: code
+    state: absent
 
 - name: Remove unused dependencies
   become: true
