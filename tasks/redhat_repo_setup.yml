@@ -1,11 +1,5 @@
 ---
 
-- name: Import Microsoft GPG key
-  become: true
-  ansible.builtin.rpm_key:
-    key: https://packages.microsoft.com/keys/microsoft.asc
-    state: present
-
 - name: Add VS Code YUM repository
   become: true
   ansible.builtin.yum_repository:
