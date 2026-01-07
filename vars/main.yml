@@ -1,6 +1,6 @@
 ---
 
-debian_dependencies:
+vscode_debian_dependencies:
   - wget
   - gpg
   - apt-transport-https

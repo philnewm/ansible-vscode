@@ -5,7 +5,7 @@
 
 - name: Test installed dependencies
   loop: "{{ debian_dependencies }}"
-  when: ansible_os_family == "Debian"
+  when: ansible_facts.os_family == "Debian"
   ansible.builtin.assert:
     that:
       - item in ansible_facts.packages
@@ -16,7 +16,7 @@
   ansible.builtin.assert:
     that:
       - "'code' in ansible_facts.packages"
-    fail_msg: "Ulauncher' is not installed."
+    fail_msg: "VSCode' is not installed."
     quiet: true
 
 ...

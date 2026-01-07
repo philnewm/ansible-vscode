@@ -2,7 +2,7 @@
 
 - name: Ensure required packages are installed
   become: true
-  loop: "{{ debian_dependencies }}"
+  loop: "{{ vscode_debian_dependencies }}"
   when: item not in ansible_facts.packages
   ansible.builtin.apt:
     name: "{{ item }}"

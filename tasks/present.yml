@@ -5,8 +5,9 @@
 
 - name: Setup VSCode repo
   ansible.builtin.include_tasks:
-    file: "{{ ansible_os_family | lower }}_repo_setup.yml"
+    file: "{{ ansible_facts.os_family | lower }}_repo_setup.yml"
 
+# Note package install causes changes to deb repo file whne using module
 - name: Install VSCode
   become: true
   when: "'code' not in ansible_facts.packages"
