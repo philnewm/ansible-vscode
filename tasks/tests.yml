@@ -4,8 +4,8 @@
   ansible.builtin.package_facts:
 
 - name: Test installed dependencies
-  loop: "{{ debian_dependencies }}"
-  when: ansible_facts.os_family == "Debian"
+  loop: "{{ vscode_debian_dependencies }}"
+  when: ansible_facts.os_family | lower == "debian"
   ansible.builtin.assert:
     that:
       - item in ansible_facts.packages
